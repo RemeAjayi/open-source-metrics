@@ -1,16 +1,12 @@
 package com.reme;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
+@SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
-        GithubAPI githubFetch = new GithubAPI();
-        githubFetch.Authenticate();
-        try {
-            githubFetch.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+          SpringApplication.run(Main.class, args);
     }
 }
