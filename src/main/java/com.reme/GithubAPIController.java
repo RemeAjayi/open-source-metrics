@@ -1,5 +1,6 @@
 package com.reme;
 
+import com.reme.model.PullRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -7,9 +8,9 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class GithubAPIController {
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, PullRequest> kafkaTemplate;
 
-    public GithubAPIController(KafkaTemplate<String, String> kafkaTemplate) {
+    public GithubAPIController(KafkaTemplate<String, PullRequest> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
@@ -22,9 +23,10 @@ public class GithubAPIController {
     }
 
     @GetMapping("/publish")
-    public void publish(@RequestParam String message) {
+    public void publish() {
 // change to requestbody annotation
-        kafkaTemplate.send("open-source-pull-requests", message);
+        PullRequest pr = new PullRequest("1", "title", "label_name", "repo_name", "user_type", "created_at", "updated_at", "closed_at", "merged_at", "state", "body");
+        kafkaTemplate.send("open-source-pull-requests", pr);
     }
 }
 
