@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d78ec75f-30f5-41ce-80a0-f124a9bac19b" name="Changes" comment="project init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/Labels.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +61,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Maven.open-source-metrics [clean,package].executor": "Run",
+    "Maven.spring-boot-complete [clean,compile].executor": "Run",
     "Maven.spring-boot-complete [clean,package].executor": "Run",
     "Maven.spring-boot-complete [install].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -86,9 +88,9 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean install" />
-      <command value="mvn clean compile" />
       <command value="mvn install" />
       <command value="mvn clean package" />
+      <command value="mvn clean compile" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -162,6 +164,17 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="project init" />
     <option name="LAST_COMMIT_MESSAGE" value="project init" />
@@ -189,9 +202,14 @@
           <line>17</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java</url>
-          <line>31</line>
+          <line>38</line>
           <properties class="com.reme.GithubAPIController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

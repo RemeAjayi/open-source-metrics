@@ -25,8 +25,15 @@ public class GithubAPIController {
     @GetMapping("/publish")
     public void publish() {
 // change to requestbody annotation
-        PullRequest pr = new PullRequest("1", "title", "label_name", "repo_name", "user_type", "created_at", "updated_at", "closed_at", "merged_at", "state", "body");
-        kafkaTemplate.send("open-source-pull-requests", pr);
+        String url = "https://api.github.com/repos/apache/spark/pulls?since=2024-05-02T00:00:00Z";
+        RestTemplate restTemplate = new RestTemplate();
+        PullRequest[] prs = restTemplate.getForObject(url, PullRequest[].class);
+        assert prs != null;
+        for (PullRequest pr : prs) {
+            kafkaTemplate.send("open-source-pull-requests", pr);
+        }
+//        PullRequest pr = new PullRequest("1", "title", "label_name", "repo_name", "user_type", "created_at", "updated_at", "closed_at", "merged_at", "state", "body");
+//        kafkaTemplate.send("open-source-pull-requests", pr);
     }
 }
 
