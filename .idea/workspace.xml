@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d78ec75f-30f5-41ce-80a0-f124a9bac19b" name="Changes" comment="project init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/Labels.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/model/Labels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/Label.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +203,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java</url>
-          <line>38</line>
+          <line>39</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

@@ -6,6 +6,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDateTime;
+
 @RestController
 public class GithubAPIController {
     private final KafkaTemplate<String, PullRequest> kafkaTemplate;
@@ -16,9 +18,12 @@ public class GithubAPIController {
 
     @GetMapping("/prs")
     public ResponseEntity<String> index() {
+        LocalDateTime todayMidnight = LocalDateTime.of(today, midnight);
+//        repo = FileReaderService.getRepo();
+        String repo = "spark";
+
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://api.github.com/repos/apache/spark/pulls?since=2024-05-02T00:00:00Z";
-//        TODO:Parameterize the since date
+        String url = "https://api.github.com/repos/apache/" + repo + "pulls?since=" + todayMidnight;
         return restTemplate.getForEntity(url, String.class);
     }
 
@@ -32,8 +37,6 @@ public class GithubAPIController {
         for (PullRequest pr : prs) {
             kafkaTemplate.send("open-source-pull-requests", pr);
         }
-//        PullRequest pr = new PullRequest("1", "title", "label_name", "repo_name", "user_type", "created_at", "updated_at", "closed_at", "merged_at", "state", "body");
-//        kafkaTemplate.send("open-source-pull-requests", pr);
     }
 }
 

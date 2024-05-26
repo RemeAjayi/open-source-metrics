@@ -13,7 +13,8 @@ public class PullRequest {
     String id;
     @JsonProperty("title")
     String title;
-    //        String[] label_names;
+    @JsonProperty("labels")
+    Label[] label_names;
     @JsonProperty("user")
     User user_type;
     @JsonProperty("url")
