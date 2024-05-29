@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @RestController
 public class GithubAPIController {
     private final KafkaTemplate<String, PullRequest> kafkaTemplate;
+    private final String todayMidnight = Utils.getTodayMidnight();
 
     public GithubAPIController(KafkaTemplate<String, PullRequest> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
@@ -18,12 +19,11 @@ public class GithubAPIController {
 
     @GetMapping("/prs")
     public ResponseEntity<String> index() {
-        LocalDateTime todayMidnight = LocalDateTime.of(today, midnight);
 //        repo = FileReaderService.getRepo();
         String repo = "spark";
 
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://api.github.com/repos/apache/" + repo + "pulls?since=" + todayMidnight;
+        String url = "https://api.github.com/repos/apache/" + repo + "/pulls?since=" + todayMidnight;
         return restTemplate.getForEntity(url, String.class);
     }
 
