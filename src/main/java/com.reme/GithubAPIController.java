@@ -1,42 +1,51 @@
 package com.reme;
 
 import com.reme.model.PullRequest;
+import com.reme.utils.FileUtilsService;
+import com.reme.utils.Utils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.LocalDateTime;
+import java.io.IOException;
 
 @RestController
 public class GithubAPIController {
     private final KafkaTemplate<String, PullRequest> kafkaTemplate;
     private final String todayMidnight = Utils.getTodayMidnight();
+    private final FileUtilsService fileUtilsService = new FileUtilsService();
+    private final String[] repos = fileUtilsService.getRepos();
 
-    public GithubAPIController(KafkaTemplate<String, PullRequest> kafkaTemplate) {
+    public GithubAPIController(KafkaTemplate<String, PullRequest> kafkaTemplate) throws IOException {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @GetMapping("/prs")
     public ResponseEntity<String> index() {
-//        repo = FileReaderService.getRepo();
-        String repo = "spark";
-
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://api.github.com/repos/apache/" + repo + "/pulls?since=" + todayMidnight;
+        String url = "https://api.github.com/repos/apache/spark/pulls?since=" + todayMidnight;
         return restTemplate.getForEntity(url, String.class);
     }
 
+//    time this
     @GetMapping("/publish")
     public void publish() {
-// change to requestbody annotation
-        String url = "https://api.github.com/repos/apache/spark/pulls?since=2024-05-02T00:00:00Z";
-        RestTemplate restTemplate = new RestTemplate();
-        PullRequest[] prs = restTemplate.getForObject(url, PullRequest[].class);
-        assert prs != null;
-        for (PullRequest pr : prs) {
+        for (String repo : repos) {
+            String url = "https://api.github.com/repos/apache/" + repo + "/pulls?since=" + todayMidnight;
+            RestTemplate restTemplate = new RestTemplate();
+            PullRequest[] prs = restTemplate.getForObject(url, PullRequest[].class);
+            assert prs != null;
+            for (PullRequest pr : prs) {
+            pr.setRepo(repo);
             kafkaTemplate.send("open-source-pull-requests", pr);
+            }
         }
+    }
+
+//    time this
+    @GetMapping("/publish-async/")
+    public void publishAsync() {
     }
 }
 

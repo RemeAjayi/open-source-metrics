@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d78ec75f-30f5-41ce-80a0-f124a9bac19b" name="Changes" comment="project init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/Transform.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/Bigquery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/Spark.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/utils/FileUtilsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +75,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "Maven.open-source-metrics [clean,package].executor": "Run",
     "Maven.spring-boot-complete [clean,compile].executor": "Run",
     "Maven.spring-boot-complete [clean,package].executor": "Run",
@@ -114,7 +120,7 @@
       <module name="spring-boot-complete" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.reme.*" />
+          <option name="PATTERN" value="com.reme.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -214,22 +220,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java</url>
-          <line>39</line>
+          <line>40</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java</url>
-          <line>38</line>
-          <properties class="com.reme.GithubAPIController">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com.reme/Main.java</url>
@@ -242,7 +234,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java</url>
-          <line>20</line>
+          <line>21</line>
           <properties field="bootstrapServers" class="com.reme.config.KafkaProducerConfig" />
           <option name="timeStamp" value="12" />
         </line-breakpoint>

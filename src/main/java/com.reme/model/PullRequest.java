@@ -31,6 +31,7 @@ public class PullRequest {
     String state;
     @JsonProperty("body")
     String body;
+    String repo;
 
 //    @JsonProperty("labels")
 //    private void mapLabelName(Map<String,Object[]> labels) {
@@ -49,6 +50,9 @@ public class PullRequest {
 //        this.user_type = (String)user.get("type");
 //    }
 
+    public void setRepo (String repo) {
+        this.repo = repo;
+    }
 
 }
 

@@ -17,6 +17,7 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
 
+
     @Value("${spring.kafka.producer.bootstrap-servers}")
     private String bootstrapServers;
 
@@ -25,7 +26,6 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-//        change value serializer to json serializer
         return props;
     }
 
@@ -42,4 +42,4 @@ public class KafkaProducerConfig {
     }
 
 
-} // The End of Class;
+}
