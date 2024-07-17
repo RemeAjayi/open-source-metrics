@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d78ec75f-30f5-41ce-80a0-f124a9bac19b" name="Changes" comment="project init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/Transform.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/Bigquery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/Spark.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/utils/FileUtilsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build-api/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build-web/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/Postgres.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/entity/PullRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/repositories/PullRequestRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.migration/V1__init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/nginx-ui.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/Transform.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/Bigquery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/ConsumerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaTopicConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/Spark.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -48,18 +60,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "RemeAjayi"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RemeAjayi&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/RemeAjayi/open-source-metrics.git",
-    "accountId": "3eff1963-6f2c-4f64-b6fc-35c1db1c078f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RemeAjayi/open-source-metrics.git&quot;,
+    &quot;accountId&quot;: &quot;3eff1963-6f2c-4f64-b6fc-35c1db1c078f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -73,45 +85,55 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Maven.open-source-metrics [clean,package].executor": "Run",
-    "Maven.spring-boot-complete [clean,compile].executor": "Run",
-    "Maven.spring-boot-complete [clean,package].executor": "Run",
-    "Maven.spring-boot-complete [install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "spring-boot-version",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/olohireme/Documents/Java/open-source-metrics",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [dependency:tree].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.open-source-metrics [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-complete [clean,compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-complete [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-complete [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-complete [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;spring-boot-postgres&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/olohireme/Documents/Java/open-source-metrics&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/src/main/java/com.reme" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/build-api" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/build-web" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/src/main/java/com" />
-      <recent name="$PROJECT_DIR$/src/main/src/main/java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.reme" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean install" />
       <command value="mvn install" />
-      <command value="mvn clean package" />
       <command value="mvn clean compile" />
+      <command value="mvn dependency:tree" />
+      <command value="mvn clean package" />
+      <command value="mvn clean install" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="temurin-19" />
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <envs>
         <env name="credential" value="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" />
@@ -213,16 +235,6 @@
           <line>9</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com.reme/Main.java</url>
           <line>8</line>
@@ -231,12 +243,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java</url>
-          <line>21</line>
-          <properties field="bootstrapServers" class="com.reme.config.KafkaProducerConfig" />
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
