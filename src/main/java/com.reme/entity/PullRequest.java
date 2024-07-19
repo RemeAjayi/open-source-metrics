@@ -1,9 +1,12 @@
 package com.reme.entity;
 
 
+import com.reme.model.Label;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,13 +14,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Table(name = "pull_request")
 public class PullRequest {
 
     @Id
-    private Long id;
+    private String id;
 
     private String title;
-    private String[] labelNames;
+    private Label[] labelNames;
     private String userType;
     private String url;
     private String createdAt;

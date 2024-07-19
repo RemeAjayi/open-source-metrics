@@ -1,6 +1,7 @@
 package com.reme;
 
-import com.reme.model.PullRequest;
+import com.reme.entity.PullRequest;
+import com.reme.model.PullRequestDTO;
 import com.reme.repositories.PullRequestRepository;
 import com.reme.utils.FileUtilsService;
 import com.reme.utils.Utils;
@@ -15,10 +16,10 @@ public class GithubAPIController {
     private final String todayMidnight = Utils.getTodayMidnight();
     private final FileUtilsService fileUtilsService = new FileUtilsService();
     private final String[] repos = fileUtilsService.getRepos();
-//    private final PullRequestRepository pullRequestRepository;
+    private final PullRequestRepository pullRequestRepository;
 
-    public GithubAPIController() throws IOException {
-//        this.pullRequestRepository = PullRequestRepository;
+    public GithubAPIController(PullRequestRepository pullRequestRepository) throws IOException {
+        this.pullRequestRepository = pullRequestRepository;
     }
 
 
@@ -26,11 +27,26 @@ public class GithubAPIController {
         for (String repo : repos) {
             String url = "https://api.github.com/repos/apache/" + repo + "/pulls?since=" + todayMidnight;
             RestTemplate restTemplate = new RestTemplate();
-            PullRequest[] prs = restTemplate.getForObject(url, PullRequest[].class);
+            PullRequestDTO[] prs = restTemplate.getForObject(url, PullRequestDTO[].class);
             assert prs != null;
-            for (PullRequest pr : prs) {
+            for (PullRequestDTO pr : prs) {
             pr.setRepo(repo);
-//            pullRequestRepository.save(pr);
+
+            PullRequest pullRequest = new PullRequest();
+            pullRequest.setId(pr.getId());
+            pullRequest.setTitle(pr.getTitle());
+            pullRequest.setLabelNames(pr.getLabel_names());
+            pullRequest.setUserType(pr.getUserType());
+            pullRequest.setUrl(pr.getUrl());
+            pullRequest.setCreatedAt(pr.getCreated_at());
+            pullRequest.setUpdatedAt(pr.getUpdated_at());
+            pullRequest.setClosedAt(pr.getClosed_at());
+            pullRequest.setMergedAt(pr.getMerged_at());
+            pullRequest.setState(pr.getState());
+            pullRequest.setBody(pr.getBody());
+            pullRequest.setRepo(pr.getRepo());
+            // set other fields as necessary
+            pullRequestRepository.save(pullRequest);
             }
         }
     }

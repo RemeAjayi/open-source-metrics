@@ -1,6 +1,6 @@
 package com.reme.repositories;
 
-import com.reme.model.PullRequest;
+import com.reme.entity.PullRequest;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

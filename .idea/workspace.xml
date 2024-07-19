@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d78ec75f-30f5-41ce-80a0-f124a9bac19b" name="Changes" comment="project init">
-      <change afterPath="$PROJECT_DIR$/build-api/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build-web/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/config/Postgres.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/entity/PullRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com.reme/repositories/PullRequestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.migration/V1__init.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/nginx-ui.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/GithubAPIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/Transform.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/Bigquery.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/ConsumerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaProducerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/KafkaTopicConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/config/Spark.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/entity/PullRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/entity/PullRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/model/PullRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com.reme/repositories/PullRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com.reme/repositories/PullRequestRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,8 +113,8 @@
       <command value="mvn install" />
       <command value="mvn clean compile" />
       <command value="mvn dependency:tree" />
-      <command value="mvn clean package" />
       <command value="mvn clean install" />
+      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
