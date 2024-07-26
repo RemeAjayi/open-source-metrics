@@ -1,6 +1,7 @@
 package com.reme;
 
 import com.reme.entity.PullRequest;
+import com.reme.mapper.PullRequestMapper;
 import com.reme.model.PullRequestDTO;
 import com.reme.repositories.PullRequestRepository;
 import com.reme.utils.FileUtilsService;
@@ -30,23 +31,8 @@ public class GithubAPIController {
             PullRequestDTO[] prs = restTemplate.getForObject(url, PullRequestDTO[].class);
             assert prs != null;
             for (PullRequestDTO pr : prs) {
-            pr.setRepo(repo);
-
-            PullRequest pullRequest = new PullRequest();
-            pullRequest.setId(pr.getId());
-            pullRequest.setTitle(pr.getTitle());
-            pullRequest.setLabelNames(pr.getLabel_names());
-            pullRequest.setUserType(pr.getUserType());
-            pullRequest.setUrl(pr.getUrl());
-            pullRequest.setCreatedAt(pr.getCreated_at());
-            pullRequest.setUpdatedAt(pr.getUpdated_at());
-            pullRequest.setClosedAt(pr.getClosed_at());
-            pullRequest.setMergedAt(pr.getMerged_at());
-            pullRequest.setState(pr.getState());
-            pullRequest.setBody(pr.getBody());
-            pullRequest.setRepo(pr.getRepo());
-            // set other fields as necessary
-            pullRequestRepository.save(pullRequest);
+                pr.setRepo(repo);
+                pullRequestRepository.save(PullRequestMapper.toEntity(pr));
             }
         }
     }

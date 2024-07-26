@@ -1,7 +1,6 @@
-CREATE TABLE pull_requests (
+CREATE TABLE pull_request (
     id TEXT PRIMARY KEY,
     title TEXT,
-    user_type TEXT,
     url TEXT,
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
@@ -9,5 +8,8 @@ CREATE TABLE pull_requests (
     merged_at TIMESTAMP,
     state TEXT,
     body TEXT,
-    repo TEXT
+    repo TEXT,
+    user_type_id TEXT,
+    user_type_name TEXT,
+    label_names TEXT[]
 );

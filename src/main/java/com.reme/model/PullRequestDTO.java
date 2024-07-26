@@ -3,6 +3,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @JsonIgnoreProperties("ignoreUnknown = true")
 public class PullRequestDTO {
@@ -12,7 +14,7 @@ public class PullRequestDTO {
     @JsonProperty("title")
     String title;
     @JsonProperty("labels")
-    Label[] label_names;
+    List<Label> label_names;
     @JsonProperty("user")
     User user_type;
     @JsonProperty("url")
@@ -30,12 +32,6 @@ public class PullRequestDTO {
     @JsonProperty("body")
     String body;
     String repo;
-
-
-    public void setRepo (String repo) {
-        this.repo = repo;
-    }
-
 }
 
 

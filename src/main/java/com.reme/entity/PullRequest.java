@@ -1,14 +1,13 @@
 package com.reme.entity;
-
-
 import com.reme.model.Label;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.reme.model.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -22,8 +21,13 @@ public class PullRequest {
     private String id;
 
     private String title;
-    private Label[] labelNames;
-    private String userType;
+
+    @ElementCollection
+    @Embedded
+    private List<Label> labelNames;
+
+    @Embedded
+    private User userType;
     private String url;
     private String createdAt;
     private String updatedAt;
