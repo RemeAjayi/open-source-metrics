@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+#  web:
+#    container_name: open-source-metrics-web
+#    build: build-web/.
+#    ports:
+#      - 8080:80
+
+  api:
+      container_name: open-source-metrics-api
+      build: .
+      environment:
+        SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5433/open-source-metrics"
+        SPRING_DATASOURCE_USERNAME: postgres
+        SPRING_DATASOURCE_PASSWORD: postgres_osm
+        SPRING_LOGGING_LEVEL_ROOT: INFO
+        SPRING_SERVER_PORT: 5000
+      ports:
+        - 5000:5000
+
+  postgres:
+      container_name: open-source-metrics-db
+      image: postgres:13-alpine
+      restart: always
+      environment:
+        PGUSER: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres_osm
+        POSTGRES_DB: open-source-metrics
+      healthcheck:
+        test: [ "CMD-SHELL", "pg_isready -d open-source-metrics -U postgres" ]
+      command: [ "postgres", "-c", "log_statement=all", "-c", "log_destination=stderr" ]
+      ports:
+        - 5433:5432
+      volumes:
+        - db:/var/lib/postgresql/data
+
+volumes:
+    db:
+      driver: local

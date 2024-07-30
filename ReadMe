@@ -1,0 +1,58 @@
+# Project Title
+
+This is a Java-based project that uses the Spring Boot framework and Maven for dependency management. The project is designed to interact with the GitHub API and Kafka.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- Java 19
+- Maven
+- Spring Boot
+- Kafka
+- Docker
+
+### Installing
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run `mvn clean install` to build the project and install the dependencies.
+
+## Running the Application
+
+To run the application, navigate to the project directory and execute the following command:
+
+```bash
+mvn spring-boot:run
+```
+
+## Project Structure
+
+The project consists of several key components:
+
+- `KafkaProducerConfig`: This class is responsible for the configuration of the Kafka producer. It sets up the producer factory and Kafka template beans.
+
+- `GithubAPIController`: This class is a REST controller that interacts with the GitHub API. It fetches pull requests from a specified repository and publishes them to a Kafka topic.
+
+- `Utils`: This class contains utility methods, such as `getTodayMidnight()`, which returns the current date at midnight in the "America/Toronto" timezone.
+
+- `PullRequest` and `Label`: These are model classes that represent the structure of a pull request and label respectively in the GitHub API.
+
+## Built With
+
+- [Java](https://www.java.com/) - The programming language used
+- [Spring Boot](https://spring.io/projects/spring-boot) - The framework used
+- [Maven](https://maven.apache.org/) - Dependency Management
+- [Kafka](https://kafka.apache.org/) - Used for real-time data streaming
+
+## Authors
+
+- Your Name
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
