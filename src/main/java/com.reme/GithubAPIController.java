@@ -32,6 +32,7 @@ public class GithubAPIController {
             assert prs != null;
             for (PullRequestDTO pr : prs) {
                 pr.setRepo(repo);
+                System.out.println(pr);
                 pullRequestRepository.save(PullRequestMapper.toEntity(pr));
             }
         }
