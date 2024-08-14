@@ -25,16 +25,17 @@ public class GithubAPIController {
 
 
     public void SavePullRequests() {
-        for (String repo : repos) {
-            String url = "https://api.github.com/repos/apache/" + repo + "/pulls?since=" + todayMidnight;
+//        for (String repo : repos) {
+            String url = "https://api.github.com/repos/apache/" + "spark" + "/pulls?since=" + todayMidnight  + "&per_page=2";
             RestTemplate restTemplate = new RestTemplate();
+
             PullRequestDTO[] prs = restTemplate.getForObject(url, PullRequestDTO[].class);
             assert prs != null;
             for (PullRequestDTO pr : prs) {
-                pr.setRepo(repo);
-                System.out.println(pr);
-                pullRequestRepository.save(PullRequestMapper.toEntity(pr));
-            }
+//                pr.setRepo(repo);
+                System.out.println(pr.getLabel_names());
+//                pullRequestRepository.save(PullRequestMapper.toEntity(pr));
+//            }
         }
     }
 

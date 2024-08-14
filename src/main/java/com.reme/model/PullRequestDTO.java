@@ -3,6 +3,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
+import java.util.ArrayList;
+
 
 @JsonIgnoreProperties("ignoreUnknown = true")
 public class PullRequestDTO {
@@ -50,6 +52,14 @@ public class PullRequestDTO {
 
     public List<Label> getLabel_names() {
         return label_names;
+    }
+
+    public List<String> getLabelNamesAsString() {
+        List<String> labelNames = new ArrayList<>();
+        for (Label label : label_names) {
+            labelNames.add(label.getName());
+        }
+        return labelNames;
     }
 
     public void setLabel_names(List<Label> label_names) {
@@ -126,5 +136,22 @@ public class PullRequestDTO {
 
     public void setRepo(String repo) {
         this.repo = repo;
+    }
+
+    public String toString() {
+        return "PullRequestDTO{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", label_names=" + label_names +
+                ", user_type=" + user_type +
+                ", url='" + url + '\'' +
+                ", created_at='" + created_at + '\'' +
+                ", updated_at='" + updated_at + '\'' +
+                ", closed_at='" + closed_at + '\'' +
+                ", merged_at='" + merged_at + '\'' +
+                ", state='" + state + '\'' +
+                ", body='" + body + '\'' +
+                ", repo='" + repo + '\'' +
+                '}';
     }
 }

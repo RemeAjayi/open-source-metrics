@@ -2,6 +2,10 @@ package com.reme.mapper;
 
 import com.reme.entity.PullRequest;
 import com.reme.model.PullRequestDTO;
+import com.reme.model.Label;
+import com.reme.model.User;
+
+import java.util.stream.Collectors;
 
 public class PullRequestMapper {
 
@@ -9,8 +13,8 @@ public class PullRequestMapper {
         PullRequestDTO dto = new PullRequestDTO();
         dto.setId(entity.getId());
         dto.setTitle(entity.getTitle());
-        dto.setLabel_names(entity.getLabelNames());
-        dto.setUser_type(entity.getUserType());
+        dto.setLabel_names(entity.getLabelNames().stream().map(Label::new).collect(Collectors.toList()));
+        dto.setUser_type(new User(entity.getUserType()));
         dto.setUrl(entity.getUrl());
         dto.setCreated_at(entity.getCreatedAt());
         dto.setUpdated_at(entity.getUpdatedAt());
@@ -26,8 +30,8 @@ public class PullRequestMapper {
         PullRequest entity = new PullRequest();
         entity.setId(dto.getId());
         entity.setTitle(dto.getTitle());
-        entity.setLabelNames(dto.getLabel_names());
-        entity.setUserType(dto.getUser_type());
+        entity.setLabelNames(dto.getLabelNamesAsString());
+        entity.setUserType(dto.getUser_type().getType());
         entity.setUrl(dto.getUrl());
         entity.setCreatedAt(dto.getCreated_at());
         entity.setUpdatedAt(dto.getUpdated_at());

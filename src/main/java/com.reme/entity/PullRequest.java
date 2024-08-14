@@ -1,6 +1,4 @@
 package com.reme.entity;
-import com.reme.model.Label;
-import com.reme.model.User;
 import jakarta.persistence.*;
 
 
@@ -11,24 +9,21 @@ import java.util.List;
 public class PullRequest {
 
     @Id
-    private String id;
-
-    private String title;
+    public String id;
+    public String title;
 
     @ElementCollection
     @Embedded
-    private List<Label> labelNames;
-
-    @Embedded
-    private User userType;
-    private String url;
-    private String createdAt;
-    private String updatedAt;
-    private String closedAt;
-    private String mergedAt;
-    private String state;
-    private String body;
-    private String repo;
+    public List<String> labelNames;
+    public String userType;
+    public String url;
+    public String createdAt;
+    public String updatedAt;
+    public String closedAt;
+    public String mergedAt;
+    public String state;
+    public String body;
+    public String repo;
 
     // Getters and Setters
     public String getId() {
@@ -47,19 +42,19 @@ public class PullRequest {
         this.title = title;
     }
 
-    public List<Label> getLabelNames() {
+    public List<String> getLabelNames() {
         return labelNames;
     }
 
-    public void setLabelNames(List<Label> labelNames) {
+    public void setLabelNames(List<String> labelNames) {
         this.labelNames = labelNames;
     }
 
-    public User getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(User userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 
