@@ -10,28 +10,28 @@ import java.util.ArrayList;
 public class PullRequestDTO {
 
     @JsonProperty("id")
-    String id;
+    public String id;
     @JsonProperty("title")
-    String title;
+    public String title;
     @JsonProperty("labels")
-    List<Label> label_names;
+    public List<Label> label_names;
     @JsonProperty("user")
-    User user_type;
+    public User user_type;
     @JsonProperty("url")
-    String url;
+    public String url;
     @JsonProperty("created_at")
-    String created_at;
+    public String created_at;
     @JsonProperty("updated_at")
-    String updated_at;
+    public String updated_at;
     @JsonProperty("closed_at")
-    String closed_at;
+    public String closed_at;
     @JsonProperty("merged_at")
-    String merged_at;
+    public String merged_at;
     @JsonProperty("state")
-    String state;
+    public String state;
     @JsonProperty("body")
-    String body;
-    String repo;
+    public String body;
+    public String repo;
 
     // Getters and Setters
     public String getId() {

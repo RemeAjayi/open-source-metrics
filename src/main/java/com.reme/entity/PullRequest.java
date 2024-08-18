@@ -13,7 +13,7 @@ public class PullRequest {
     public String title;
 
     @ElementCollection
-    @Embedded
+    @CollectionTable(name = "labels", joinColumns = @JoinColumn(name = "pull_request_id"))
     public List<String> labelNames;
     public String userType;
     public String url;

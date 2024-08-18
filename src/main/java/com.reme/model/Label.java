@@ -7,11 +7,12 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 
 public class Label {
+    public Label() {}
     public Label(String name) {
         this.name = name;
     }
     @JsonProperty("name")
-    public String name;
+    private String name;
 
     // Getter
     public String getName() {

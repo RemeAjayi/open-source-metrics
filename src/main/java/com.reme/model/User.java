@@ -7,12 +7,13 @@ import jakarta.persistence.Embeddable;
 @JsonIgnoreProperties("ignoreUnknown = true")
 public class User {
 
+    public User() {}
     public User(String type) {
         this.type = type;
     }
 
     @JsonProperty("type")
-    public String type;
+    private String type;
 
     // Getter
     public String getType() {
