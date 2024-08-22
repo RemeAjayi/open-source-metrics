@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -20,12 +19,9 @@ public class GithubAPIController {
     private final FileUtilsService fileUtilsService = new FileUtilsService();
     private final String[] repos = fileUtilsService.getRepos();
     private final PullRequestRepository pullRequestRepository;
-    private final GithubAPIService gService;
 
-    public GithubAPIController(PullRequestRepository pullRequestRepository,
-    GithubAPIService gService) throws IOException {
+    public GithubAPIController(PullRequestRepository pullRequestRepository) throws IOException {
         this.pullRequestRepository = pullRequestRepository;
-        this.gService = gService;
     }
 
     @Scheduled(fixedRate=60*60*1000)
@@ -71,11 +67,6 @@ public class GithubAPIController {
                     pr.setRepo(repo);
                     pullRequestRepository.save(PullRequestMapper.toEntity(pr));
                 }
-                System.out.println("Successfully retrieved pull requests for " + repo);
-
-            }
-            else if (response.getStatusCode() == HttpStatus.NOT_FOUND) {
-                System.out.println("No pull requests found for " + repo +"skipping");
 
             } else {
                 // Handle the error response
@@ -85,24 +76,11 @@ public class GithubAPIController {
         }
     }
 
-    @GetMapping("leaders")
-    public List<String> getLeaders() {
-        return gService.getLeaders();
-    }
 
-    @GetMapping("users")
-    public List<String> getUsers() {
-        return gService.getUsers();
-    }
-
-    @GetMapping("labels")
-    public List<String> getLabels() {
-        return gService.getLabels();
-    }
-
-    @GetMapping("longest-running-prs")
-    public List<String> getLongestRunningPRs() {
-        return gService.getLongestRunningPRs();
+    @GetMapping("/pull-requests")
+    public ResponseEntity<String> getPullRequests() {
+        SavePullRequests();
+        return ResponseEntity.ok("Pull Requests saved successfully");
     }
 
     @GetMapping("hello")
