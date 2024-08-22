@@ -41,3 +41,4 @@ build/
 .github
 /.idea/
 .idea/workspace.xml
+env.sh

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -19,9 +20,12 @@ public class GithubAPIController {
     private final FileUtilsService fileUtilsService = new FileUtilsService();
     private final String[] repos = fileUtilsService.getRepos();
     private final PullRequestRepository pullRequestRepository;
+    private final GithubAPIService gService;
 
-    public GithubAPIController(PullRequestRepository pullRequestRepository) throws IOException {
+    public GithubAPIController(PullRequestRepository pullRequestRepository,
+    GithubAPIService gService) throws IOException {
         this.pullRequestRepository = pullRequestRepository;
+        this.gService = gService;
     }
 
     @Scheduled(fixedRate=60*60*1000)
@@ -30,7 +34,7 @@ public class GithubAPIController {
             String GITHUB_API_URL = "https://api.github.com/repos/apache/" + repo + "/pulls?since=" + todayMidnight;
             RestTemplate restTemplate = new RestTemplate();
 
-            String AUTH_TOKEN = "";
+            String AUTH_TOKEN = System.getenv("GITHUB_AUTH_TOKEN");
             // Set up headers
             HttpHeaders headers = new HttpHeaders();
             headers.set("Authorization", "token " + AUTH_TOKEN);
@@ -67,6 +71,11 @@ public class GithubAPIController {
                     pr.setRepo(repo);
                     pullRequestRepository.save(PullRequestMapper.toEntity(pr));
                 }
+                System.out.println("Successfully retrieved pull requests for " + repo);
+
+            }
+            else if (response.getStatusCode() == HttpStatus.NOT_FOUND) {
+                System.out.println("No pull requests found for " + repo +"skipping");
 
             } else {
                 // Handle the error response
@@ -76,11 +85,24 @@ public class GithubAPIController {
         }
     }
 
+    @GetMapping("leaders")
+    public List<String> getLeaders() {
+        return gService.getLeaders();
+    }
 
-    @GetMapping("/pull-requests")
-    public ResponseEntity<String> getPullRequests() {
-        SavePullRequests();
-        return ResponseEntity.ok("Pull Requests saved successfully");
+    @GetMapping("users")
+    public List<String> getUsers() {
+        return gService.getUsers();
+    }
+
+    @GetMapping("labels")
+    public List<String> getLabels() {
+        return gService.getLabels();
+    }
+
+    @GetMapping("longest-running-prs")
+    public List<String> getLongestRunningPRs() {
+        return gService.getLongestRunningPRs();
     }
 
     @GetMapping("hello")
