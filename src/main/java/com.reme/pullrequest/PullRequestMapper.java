@@ -1,9 +1,9 @@
-package com.reme.mapper;
+package com.reme.pullrequest;
 
 import com.reme.entity.PullRequest;
-import com.reme.model.PullRequestDTO;
-import com.reme.model.Label;
-import com.reme.model.User;
+import com.reme.dto.PullRequestDTO;
+import com.reme.dto.Label;
+import com.reme.dto.User;
 
 import java.util.stream.Collectors;
 

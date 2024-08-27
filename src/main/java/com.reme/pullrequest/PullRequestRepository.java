@@ -1,4 +1,4 @@
-package com.reme.repositories;
+package com.reme.pullrequest;
 
 import com.reme.entity.PullRequest;
 import org.springframework.data.repository.CrudRepository;

@@ -1,4 +1,4 @@
-package com.reme.model;
+package com.reme.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

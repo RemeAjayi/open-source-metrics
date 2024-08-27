@@ -1,4 +1,4 @@
-# Project Title
+# Open Source Metrics
 
 This is a Java-based project that uses the Spring Boot framework and Maven for dependency management. The project is designed to interact with the GitHub API and Kafka.
 
@@ -11,8 +11,10 @@ These instructions will get you a copy of the project up and running on your loc
 - Java 19
 - Maven
 - Spring Boot
-- Kafka
+- Postgres
 - Docker
+- React
+- NPM
 
 ### Installing
 
@@ -45,11 +47,10 @@ The project consists of several key components:
 - [Java](https://www.java.com/) - The programming language used
 - [Spring Boot](https://spring.io/projects/spring-boot) - The framework used
 - [Maven](https://maven.apache.org/) - Dependency Management
-- [Kafka](https://kafka.apache.org/) - Used for real-time data streaming
 
 ## Authors
 
-- Your Name
+- Olohireme Ajayi
 
 ## License
 
